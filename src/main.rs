@@ -375,7 +375,7 @@ fn rimuovi() {
         false => check = false ,
     }
     if check {
-        let file_path = format!("{}{}{}", DATA_FOLDER, cod_rm.trim_end().to_string(), FILE_XT);
+        let file_path = format!("{}{}{}", DATA_FOLDER, cod_rm.trim_end().to_uppercase(), FILE_XT);
         let j_path = Path::new(&file_path);
         let display = j_path.display();
         
@@ -412,7 +412,6 @@ fn run() {
 }
 
 fn main() {
-    
     println!("\nCopyright (C) 2020 - Matteo Vinci");
     println!(r#"This program comes with ABSOLUTELY NO WARRANTY.
 This is free software, and you are welcome to redistribute it under certain conditions.
