@@ -220,7 +220,7 @@ fn carico_scarico(m: bool) {
             }
             else {
                 //(subtract)
-                if data.quantita > amount.trim().parse::<u16>().unwrap() {
+                if data.quantita >= amount.trim().parse::<u16>().unwrap() {
                     data.quantita -= amount.trim().parse::<u16>().unwrap();
                 }
                 else {
