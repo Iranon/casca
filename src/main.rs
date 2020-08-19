@@ -206,12 +206,6 @@ fn carico_scarico(m: bool) {
         io::stdin().read_line(&mut amount).expect("Fallimento lettura input");
         if amount.trim().to_string().parse::<u16>().is_ok()
         && amount.trim().to_string().parse::<u16>().unwrap() > 0 {  //-> //Avoid wrong digit
-            
-            //Reopen the file to truncate it and read from json structure to update the value (quantità)
-            let file = match OpenOptions::new().create(false).read(true).truncate(true).write(true).open(&j_path) {
-                Err(why) => panic!("Impossibile creare e/o scrivere {}: {}", display, why) ,
-                Ok(file) => file ,
-            };
 
             //Update quantity by amount
             if m {
@@ -229,6 +223,13 @@ fn carico_scarico(m: bool) {
                     quit::with_code(101);
                 }
             }
+
+            //Reopen the file to truncate it and read from json structure to update the value (quantità)
+            let file = match OpenOptions::new().create(false).read(true).truncate(true).write(true).open(&j_path) {
+                Err(why) => panic!("Impossibile creare e/o scrivere {}: {}", display, why) ,
+                Ok(file) => file ,
+            };
+            
             //Rewrite
             match serde_json::to_writer_pretty(&file, &data) {
                 Err(why) => panic!("Impossibile scrivere in {}: {}", display, why) ,
