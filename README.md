@@ -5,7 +5,7 @@
 Data structures are stored into JSON files (inside the data folder).
 
 <sub>
-User dedicated outputs are wrote in italian.
+User dedicated outputs are written in italian.
 </sub>
 
 ### *Rust and serde study*
