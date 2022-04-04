@@ -9,3 +9,5 @@ User dedicated outputs are written in italian.
 </sub>
 
 ### *Rust and serde study*
+
+*This repository has been archived*
